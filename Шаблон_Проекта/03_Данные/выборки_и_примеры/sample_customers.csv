@@ -1,0 +1,6 @@
+customer_id,name,email,registration_date,status
+1001,ООО "Альфа",alpha@example.com,2023-01-15,active
+1002,ИП Петров,petrov@example.com,2023-02-20,active
+1003,ЗАО "Бета",beta@example.com,2023-03-10,inactive
+1004,ООО "Гамма",gamma@example.com,2023-04-05,active
+1005,ООО "Дельта",delta@example.com,2023-05-01,active

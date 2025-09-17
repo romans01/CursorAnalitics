@@ -1,0 +1,21 @@
+# Архив
+99_Архив/
+
+# Большие файлы данных
+**/*.csv
+**/*.parquet
+**/*.xlsx
+**/*.json
+**/*.xml
+
+# Временные файлы
+**/*.tmp
+**/tmp/
+**/temp/
+**/.ipynb_checkpoints/
+**/build/
+**/dist/
+
+# Системные файлы
+**/.DS_Store
+**/Thumbs.db

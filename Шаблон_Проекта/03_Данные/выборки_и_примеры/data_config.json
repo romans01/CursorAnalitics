@@ -1,0 +1,43 @@
+{
+  "data_sources": {
+    "crm": {
+      "connection": "postgresql://user:pass@crm-db:5432/crm",
+      "tables": ["customers", "contacts", "leads"],
+      "refresh_frequency": "daily"
+    },
+    "erp": {
+      "connection": "postgresql://user:pass@erp-db:5432/erp", 
+      "tables": ["orders", "products", "inventory"],
+      "refresh_frequency": "hourly"
+    }
+  },
+  "quality_rules": {
+    "customers": {
+      "required_fields": ["customer_id", "name", "email"],
+      "unique_fields": ["customer_id", "email"],
+      "data_types": {
+        "customer_id": "integer",
+        "registration_date": "date",
+        "status": "enum"
+      }
+    },
+    "orders": {
+      "required_fields": ["order_id", "customer_id", "order_date"],
+      "foreign_keys": {
+        "customer_id": "customers.customer_id"
+      },
+      "business_rules": {
+        "total_amount": "> 0",
+        "quantity": "> 0"
+      }
+    }
+  },
+  "test_data": {
+    "sample_size": 1000,
+    "anonymization": {
+      "email": "hash_domain",
+      "phone": "mask_digits",
+      "name": "pseudonymize"
+    }
+  }
+}
